@@ -2,11 +2,11 @@
 
 const display = document.getElementById('display');
 
-const digits = Array.from(document.getElementById('digits').childNodes)
-                    .filter((element) => element.nodeName == "BUTTON");
+const digits = Array.from(document.getElementById('buttons').childNodes)
+                    .filter((element) => element.nodeName == "BUTTON" && !isNaN(element.innerText));
 digits.forEach((button) => button.addEventListener('click', processDigit))
 
-const operators = Array.from(document.getElementById('operators').childNodes)
+const operators = Array.from(document.getElementsByClassName('operator'))
                        .filter((element) => element.nodeName == "BUTTON");
 operators.forEach((button) => button.addEventListener('click', processOperator))
 
